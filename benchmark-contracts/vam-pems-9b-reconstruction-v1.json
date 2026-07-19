@@ -1,0 +1,125 @@
+{
+  "id": "vam-pems-9b-reconstruction-v1",
+  "version": 1,
+  "scope": "Clean-room synthetic reconstruction benchmark; no historical equivalence claim",
+  "required_fields": [
+    "experiment",
+    "seed_count",
+    "severity_count",
+    "scenario_count",
+    "split_overlap_count",
+    "candidate_truth_access_count",
+    "oracle_missing_accuracy",
+    "oracle_minus_best_non_oracle_missing_accuracy",
+    "clean_present_only_missing_accuracy",
+    "clean_contour_material_memory_missing_accuracy",
+    "clean_shuffled_memory_control_missing_accuracy",
+    "corrupt_present_only_missing_accuracy",
+    "corrupt_contour_material_memory_missing_accuracy",
+    "clean_contour_material_memory_outside_hallucination_rate",
+    "clean_decayed_over_present_missing_accuracy_ratio",
+    "clean_decayed_over_shuffled_missing_accuracy_ratio",
+    "corrupt_decayed_over_present_missing_accuracy_ratio",
+    "clean_contour_minus_decayed_missing_accuracy",
+    "corrupt_contour_minus_decayed_missing_accuracy",
+    "clean_decayed_minus_contour_brier",
+    "clean_decayed_minus_contour_ece",
+    "clean_contour_over_present_missing_accuracy_ratio",
+    "clean_contour_over_shuffled_missing_accuracy_ratio",
+    "corrupt_contour_over_present_missing_accuracy_ratio"
+  ],
+  "diagnosis_gates": [
+    {
+      "id": "locked_seed_minimum",
+      "field": "seed_count",
+      "comparison": "minimum",
+      "threshold": 30
+    },
+    {
+      "id": "severity_ladder_present",
+      "field": "severity_count",
+      "comparison": "minimum",
+      "threshold": 3
+    },
+    {
+      "id": "split_overlap_absent",
+      "field": "split_overlap_count",
+      "comparison": "maximum",
+      "threshold": 0
+    },
+    {
+      "id": "candidate_truth_access_absent",
+      "field": "candidate_truth_access_count",
+      "comparison": "maximum",
+      "threshold": 0
+    },
+    {
+      "id": "oracle_is_exact",
+      "field": "oracle_missing_accuracy",
+      "comparison": "minimum",
+      "threshold": 0.999999
+    },
+    {
+      "id": "oracle_remains_strict_upper_bound",
+      "field": "oracle_minus_best_non_oracle_missing_accuracy",
+      "comparison": "strict_minimum",
+      "threshold": 0
+    },
+    {
+      "id": "clean_memory_accuracy",
+      "field": "clean_decayed_material_memory_missing_accuracy",
+      "comparison": "minimum",
+      "threshold": 0.75
+    },
+    {
+      "id": "clean_memory_present_separation",
+      "field": "clean_decayed_over_present_missing_accuracy_ratio",
+      "comparison": "strict_minimum",
+      "threshold": 1.35
+    },
+    {
+      "id": "clean_memory_shuffle_separation",
+      "field": "clean_decayed_over_shuffled_missing_accuracy_ratio",
+      "comparison": "strict_minimum",
+      "threshold": 1.35
+    },
+    {
+      "id": "corrupt_memory_present_separation",
+      "field": "corrupt_decayed_over_present_missing_accuracy_ratio",
+      "comparison": "strict_minimum",
+      "threshold": 1.2
+    }
+  ],
+  "candidate_gates": [
+    {
+      "id": "contour_clean_noninferiority",
+      "field": "clean_contour_minus_decayed_missing_accuracy",
+      "comparison": "minimum",
+      "threshold": 0
+    },
+    {
+      "id": "contour_corrupt_increment",
+      "field": "corrupt_contour_minus_decayed_missing_accuracy",
+      "comparison": "strict_minimum",
+      "threshold": 0
+    },
+    {
+      "id": "contour_brier_increment",
+      "field": "clean_decayed_minus_contour_brier",
+      "comparison": "strict_minimum",
+      "threshold": 0
+    },
+    {
+      "id": "contour_calibration_increment",
+      "field": "clean_decayed_minus_contour_ece",
+      "comparison": "strict_minimum",
+      "threshold": 0
+    },
+    {
+      "id": "outside_hallucination_bound",
+      "field": "clean_contour_material_memory_outside_hallucination_rate",
+      "comparison": "maximum",
+      "threshold": 0.02
+    }
+  ]
+}
