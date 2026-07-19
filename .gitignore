@@ -1,6 +1,7 @@
 node_modules/
 coverage/
 submitted-runs/
+outputs/
 *.log
 .DS_Store
 Thumbs.db
