@@ -1,11 +1,12 @@
 {
   "name": "@utopia/pam-benchmark",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "validate:sample": "node src/validate-audit.mjs fixtures/pac5r_metrics_summary.json"
+    "validate:sample": "node src/validate-audit.mjs fixtures/pac5r_metrics_summary.json",
+    "benchmark:vam9b": "node src/run-vam-pems-9b.mjs --out outputs/vam-pems-9b",
+    "validate:vam9b:sample": "node src/validate-audit.mjs fixtures/vam_pems_9b_reconstruction_summary.json benchmark-contracts/vam-pems-9b-reconstruction-v1.json"
   }
 }
-
