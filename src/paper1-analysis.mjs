@@ -95,13 +95,27 @@ export function buildPaper1Analysis(rows9Csv, rows10Csv, options = {}) {
       modeB: "object_separated_memory",
       field: "missing_accuracy"
     }, 10_004, bootstrapResamples, permutationResamples),
+    comparison(rows10, {
+      id: "clean_object_minus_contour_brier",
+      condition: "clean",
+      modeA: "object_separated_memory",
+      modeB: "object_contour_memory",
+      field: "missing_brier"
+    }, 10_005, bootstrapResamples, permutationResamples),
+    comparison(rows10, {
+      id: "clean_object_minus_contour_ece",
+      condition: "clean",
+      modeA: "object_separated_memory",
+      modeB: "object_contour_memory",
+      field: "missing_ece"
+    }, 10_006, bootstrapResamples, permutationResamples),
     crossConditionComparison(rows10, {
       id: "object_clean_minus_corrupt_accuracy",
       mode: "object_separated_memory",
       conditionA: "clean",
       conditionB: "corrupt",
       field: "missing_accuracy"
-    }, 10_005, bootstrapResamples, permutationResamples)
+    }, 10_007, bootstrapResamples, permutationResamples)
   ];
 
   return {
