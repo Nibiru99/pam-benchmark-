@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Nibiru99/pam-benchmark-/schemas/pac-audit-summary.schema.json",
+  "title": "PAM audit metric summary",
+  "type": "object",
+  "required": ["experiment", "frame_count", "tail_window"],
+  "properties": {
+    "experiment": { "type": "string", "minLength": 1 },
+    "status": { "type": "string" },
+    "frame_count": { "type": "integer", "minimum": 1 },
+    "tail_window": { "type": "integer", "minimum": 1 },
+    "required_ratio": { "type": "number", "minimum": 0 },
+    "architecture_changed": { "type": "boolean" },
+    "parameter_tuning_performed": { "type": "boolean" }
+  },
+  "additionalProperties": true
+}
+

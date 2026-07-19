@@ -1,0 +1,33 @@
+{
+  "id": "pac5r-lineage-address-v1",
+  "version": 1,
+  "required_ratio": 1.35,
+  "required_fields": [
+    "experiment",
+    "frame_count",
+    "tail_window",
+    "source_lineage_unique_signature_fraction",
+    "finite_window_address_precision",
+    "finite_window_address_recall",
+    "finite_window_stale_address_fraction",
+    "identity_shuffle_support_mask_difference_mean",
+    "real_over_identity_shuffle_address_precision_ratio",
+    "real_over_spatial_permutation_address_precision_ratio",
+    "real_over_identity_shuffle_voxel_score_ratio",
+    "real_over_spatial_permutation_voxel_score_ratio"
+  ],
+  "diagnosis_gates": [
+    { "id": "source_lineage_unique", "field": "source_lineage_unique_signature_fraction", "comparison": "minimum", "threshold": 1 },
+    { "id": "finite_window_precision", "field": "finite_window_address_precision", "comparison": "minimum", "threshold": 1 },
+    { "id": "finite_window_recall", "field": "finite_window_address_recall", "comparison": "minimum", "threshold": 1 },
+    { "id": "finite_window_stale", "field": "finite_window_stale_address_fraction", "comparison": "maximum", "threshold": 0 },
+    { "id": "identity_support_mask_preserved", "field": "identity_shuffle_support_mask_difference_mean", "comparison": "maximum", "threshold": 1e-12 },
+    { "id": "direct_identity_separation", "field": "real_over_identity_shuffle_address_precision_ratio", "comparison": "strict_minimum", "threshold": 1.35 },
+    { "id": "direct_spatial_separation", "field": "real_over_spatial_permutation_address_precision_ratio", "comparison": "strict_minimum", "threshold": 1.35 }
+  ],
+  "candidate_gates": [
+    { "id": "voxel_identity_separation", "field": "real_over_identity_shuffle_voxel_score_ratio", "comparison": "strict_minimum", "threshold": 1.35 },
+    { "id": "voxel_spatial_separation", "field": "real_over_spatial_permutation_voxel_score_ratio", "comparison": "strict_minimum", "threshold": 1.35 }
+  ]
+}
+

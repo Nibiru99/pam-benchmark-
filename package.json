@@ -1,0 +1,11 @@
+{
+  "name": "@utopia/pam-benchmark",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "validate:sample": "node src/validate-audit.mjs fixtures/pac5r_metrics_summary.json"
+  }
+}
+
