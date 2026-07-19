@@ -9,6 +9,7 @@
     "benchmark:vam9b": "node src/run-vam-pems-9b.mjs --out outputs/vam-pems-9b",
     "validate:vam9b:sample": "node src/validate-audit.mjs fixtures/vam_pems_9b_reconstruction_summary.json benchmark-contracts/vam-pems-9b-reconstruction-v1.json",
     "benchmark:vam10": "node src/run-vam-pems-10.mjs --out outputs/vam-pems-10",
-    "validate:vam10:sample": "node src/validate-audit.mjs fixtures/vam_pems_10_reconstruction_summary.json benchmark-contracts/vam-pems-10-reconstruction-v1.json"
+    "validate:vam10:sample": "node src/validate-audit.mjs fixtures/vam_pems_10_reconstruction_summary.json benchmark-contracts/vam-pems-10-reconstruction-v1.json",
+    "analyze:paper1": "node src/run-paper1-analysis.mjs --out outputs/paper1_statistical_analysis.json"
   }
 }
