@@ -1,0 +1,130 @@
+{
+  "id": "vam-pems-10-reconstruction-v1",
+  "version": 1,
+  "scope": "Clean-room supervised multi-object synthetic reconstruction benchmark; no historical equivalence claim",
+  "required_fields": [
+    "experiment",
+    "seed_count",
+    "severity_count",
+    "scenario_count",
+    "object_count",
+    "split_overlap_count",
+    "candidate_truth_label_access_count",
+    "oracle_missing_accuracy",
+    "oracle_minus_best_non_oracle_missing_accuracy",
+    "clean_present_only_missing_accuracy",
+    "clean_global_scene_memory_missing_accuracy",
+    "clean_object_separated_memory_missing_accuracy",
+    "clean_shuffled_object_memory_control_missing_accuracy",
+    "clean_object_separated_memory_worst_object_accuracy",
+    "clean_object_separated_memory_cross_object_leakage_rate",
+    "clean_object_separated_memory_outside_hallucination_rate",
+    "corrupt_present_only_missing_accuracy",
+    "corrupt_object_separated_memory_missing_accuracy",
+    "clean_object_over_present_missing_accuracy_ratio",
+    "clean_object_over_global_missing_accuracy_ratio",
+    "clean_object_over_shuffled_missing_accuracy_ratio",
+    "clean_object_minus_shuffled_missing_accuracy",
+    "corrupt_object_over_present_missing_accuracy_ratio"
+  ],
+  "diagnosis_gates": [
+    {
+      "id": "locked_seed_minimum",
+      "field": "seed_count",
+      "comparison": "minimum",
+      "threshold": 30
+    },
+    {
+      "id": "severity_ladder_present",
+      "field": "severity_count",
+      "comparison": "minimum",
+      "threshold": 3
+    },
+    {
+      "id": "three_object_fixture",
+      "field": "object_count",
+      "comparison": "minimum",
+      "threshold": 3
+    },
+    {
+      "id": "split_overlap_absent",
+      "field": "split_overlap_count",
+      "comparison": "maximum",
+      "threshold": 0
+    },
+    {
+      "id": "candidate_truth_label_access_absent",
+      "field": "candidate_truth_label_access_count",
+      "comparison": "maximum",
+      "threshold": 0
+    },
+    {
+      "id": "oracle_is_exact",
+      "field": "oracle_missing_accuracy",
+      "comparison": "minimum",
+      "threshold": 0.999999
+    },
+    {
+      "id": "oracle_remains_strict_upper_bound",
+      "field": "oracle_minus_best_non_oracle_missing_accuracy",
+      "comparison": "strict_minimum",
+      "threshold": 0
+    }
+  ],
+  "candidate_gates": [
+    {
+      "id": "clean_object_accuracy",
+      "field": "clean_object_separated_memory_missing_accuracy",
+      "comparison": "minimum",
+      "threshold": 0.75
+    },
+    {
+      "id": "clean_present_separation",
+      "field": "clean_object_over_present_missing_accuracy_ratio",
+      "comparison": "strict_minimum",
+      "threshold": 1.35
+    },
+    {
+      "id": "clean_global_separation",
+      "field": "clean_object_over_global_missing_accuracy_ratio",
+      "comparison": "strict_minimum",
+      "threshold": 1.15
+    },
+    {
+      "id": "clean_shuffle_separation",
+      "field": "clean_object_minus_shuffled_missing_accuracy",
+      "comparison": "strict_minimum",
+      "threshold": 0.35
+    },
+    {
+      "id": "corrupt_object_accuracy",
+      "field": "corrupt_object_separated_memory_missing_accuracy",
+      "comparison": "minimum",
+      "threshold": 0.65
+    },
+    {
+      "id": "corrupt_present_separation",
+      "field": "corrupt_object_over_present_missing_accuracy_ratio",
+      "comparison": "strict_minimum",
+      "threshold": 1.2
+    },
+    {
+      "id": "worst_object_floor",
+      "field": "clean_object_separated_memory_worst_object_accuracy",
+      "comparison": "minimum",
+      "threshold": 0.65
+    },
+    {
+      "id": "cross_object_leakage_bound",
+      "field": "clean_object_separated_memory_cross_object_leakage_rate",
+      "comparison": "maximum",
+      "threshold": 0.08
+    },
+    {
+      "id": "outside_hallucination_bound",
+      "field": "clean_object_separated_memory_outside_hallucination_rate",
+      "comparison": "maximum",
+      "threshold": 0.02
+    }
+  ]
+}
