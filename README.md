@@ -52,6 +52,33 @@ npm run validate:vam9b:sample
 
 Protocol and claim boundaries: [docs/vam-pems-9b-reconstruction.md](docs/vam-pems-9b-reconstruction.md).
 
+## VAM–PEMS 10 clean-room reconstruction
+
+`vam-pems-10-reconstruction-v1` extends the public reconstruction program to a moving three-object synthetic scene with supplied object masks and track identities.
+
+The clean object-local result is separated from the global and present-only controls, but the full candidate remains unsupported because corrupted-memory accuracy misses its fixed floor:
+
+```text
+clean object-local accuracy = 0.781789
+clean object / present      = 1.569844
+clean object / global       = 1.625526
+clean cross-object leakage  = 0.034016
+corrupt object accuracy     = 0.600382
+required corrupt accuracy   = 0.650000
+
+diagnosis_supported = true
+candidate_supported = false
+```
+
+Run:
+
+```bash
+npm run benchmark:vam10
+npm run validate:vam10:sample
+```
+
+Protocol and claim boundaries: [docs/vam-pems-10-reconstruction.md](docs/vam-pems-10-reconstruction.md).
+
 ## Scope Boundary
 
 - Synthetic data and exported measurements only.
