@@ -156,10 +156,24 @@
         "p_monte_carlo": 0.5559944400555994
       },
       {
+        "id": "clean_object_minus_contour_brier",
+        "estimate": 0.0023586456436261046,
+        "ci95_low": 0.002128552405180313,
+        "ci95_high": 0.0025869383301970893,
+        "p_monte_carlo": 0.00000999990000099999
+      },
+      {
+        "id": "clean_object_minus_contour_ece",
+        "estimate": 0.039525593505659144,
+        "ci95_low": 0.03558748980729704,
+        "ci95_high": 0.043193521041880074,
+        "p_monte_carlo": 0.00000999990000099999
+      },
+      {
         "id": "object_clean_minus_corrupt_accuracy",
         "estimate": 0.181407024299029,
-        "ci95_low": 0.17415801479237508,
-        "ci95_high": 0.18840741055738994,
+        "ci95_low": 0.17395166482519792,
+        "ci95_high": 0.18846066569498351,
         "p_monte_carlo": 0.00000999990000099999
       }
     ],
