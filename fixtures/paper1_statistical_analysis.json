@@ -1,0 +1,243 @@
+{
+  "analysis_id": "vam-pems-paper1-statistical-analysis-v1",
+  "source_scope": "clean-room synthetic reconstructions; no historical-equivalence claim",
+  "inference": {
+    "independent_unit": "locked seed",
+    "within_seed_rows": "three severity rows retained as a block",
+    "point_estimate": "unweighted mean across seed-by-severity scenario rows",
+    "interval": "two-sided 95% percentile seed-block bootstrap",
+    "bootstrap_resamples": 10000,
+    "test": "two-sided paired seed-level sign-flip Monte Carlo test",
+    "permutation_resamples": 100000,
+    "multiplicity": "Holm correction within each experiment's principal comparison family",
+    "randomization": "deterministic 32-bit LCG with comparison-specific fixed seeds"
+  },
+  "experiment_9b": {
+    "principal_comparisons": [
+      {
+        "id": "clean_decayed_minus_present",
+        "estimate": 0.6645322931495127,
+        "ci95_low": 0.6595554888915227,
+        "ci95_high": 0.6693301193795352,
+        "p_monte_carlo": 0.00000999990000099999,
+        "p_holm": 0.00002999970000299997
+      },
+      {
+        "id": "clean_decayed_minus_shuffled",
+        "estimate": 0.6564669915895005,
+        "ci95_low": 0.6509242158020185,
+        "ci95_high": 0.6619912040634047,
+        "p_monte_carlo": 0.00000999990000099999,
+        "p_holm": 0.00002999970000299997
+      },
+      {
+        "id": "corrupt_decayed_minus_present",
+        "estimate": 0.4775435483534647,
+        "ci95_low": 0.4695223183858657,
+        "ci95_high": 0.48525253273235924,
+        "p_monte_carlo": 0.00000999990000099999,
+        "p_holm": 0.00002999970000299997
+      }
+    ],
+    "secondary_comparisons": [
+      {
+        "id": "clean_contour_minus_decayed_accuracy",
+        "estimate": 0.0021042524795968575,
+        "ci95_low": 0.0013511882467866585,
+        "ci95_high": 0.002935069317446329,
+        "p_monte_carlo": 0.00000999990000099999
+      },
+      {
+        "id": "clean_decayed_minus_contour_brier",
+        "estimate": -0.004825110708169867,
+        "ci95_low": -0.004959616773960063,
+        "ci95_high": -0.004677856148189906,
+        "p_monte_carlo": 0.00000999990000099999
+      },
+      {
+        "id": "clean_decayed_minus_contour_ece",
+        "estimate": -0.06970568928580992,
+        "ci95_low": -0.07066548932459737,
+        "ci95_high": -0.06873114160078288,
+        "p_monte_carlo": 0.00000999990000099999
+      }
+    ],
+    "levels": {
+      "clean_decayed_accuracy": {
+        "estimate": 0.9872462153074079,
+        "ci95_low": 0.9838581029973578,
+        "ci95_high": 0.9901251235997767
+      },
+      "corrupt_decayed_accuracy": {
+        "estimate": 0.8002574705113593,
+        "ci95_low": 0.7944768607334729,
+        "ci95_high": 0.8060734545310362
+      },
+      "clean_decayed_brier": {
+        "estimate": 0.013334047527091613,
+        "ci95_low": 0.012406625836638673,
+        "ci95_high": 0.014448323553876902
+      },
+      "clean_contour_brier": {
+        "estimate": 0.01815915823526148,
+        "ci95_low": 0.017314269186214214,
+        "ci95_high": 0.019180423589068164
+      },
+      "clean_decayed_ece": {
+        "estimate": 0.06212529441162623,
+        "ci95_low": 0.060499804828982796,
+        "ci95_high": 0.06368944620125215
+      },
+      "clean_contour_ece": {
+        "estimate": 0.13183098369743615,
+        "ci95_low": 0.1302422444496454,
+        "ci95_high": 0.13336955641532955
+      }
+    },
+    "severity_accuracy": {
+      "standard": {
+        "clean_present": 0.3181871949199059,
+        "clean_decayed": 0.9877466852070891,
+        "corrupt_decayed": 0.8042653238957733
+      },
+      "hard": {
+        "clean_present": 0.3209278897426689,
+        "clean_decayed": 0.9870743062713074,
+        "corrupt_decayed": 0.7901172496094044
+      },
+      "extreme": {
+        "clean_present": 0.3290266818111098,
+        "clean_decayed": 0.9869176544438263,
+        "corrupt_decayed": 0.8063898380289007
+      }
+    }
+  },
+  "experiment_10": {
+    "principal_comparisons": [
+      {
+        "id": "clean_object_minus_present",
+        "estimate": 0.2837847943141715,
+        "ci95_low": 0.27579661221108676,
+        "ci95_high": 0.2918312856858915,
+        "p_monte_carlo": 0.00000999990000099999,
+        "p_holm": 0.00003999960000399996
+      },
+      {
+        "id": "clean_object_minus_global",
+        "estimate": 0.3008438078677565,
+        "ci95_low": 0.2851522989806502,
+        "ci95_high": 0.31794823138419964,
+        "p_monte_carlo": 0.00000999990000099999,
+        "p_holm": 0.00003999960000399996
+      },
+      {
+        "id": "clean_object_minus_shuffled",
+        "estimate": 0.7817887550423112,
+        "ci95_low": 0.7761957233866,
+        "ci95_high": 0.7874999032155686,
+        "p_monte_carlo": 0.00000999990000099999,
+        "p_holm": 0.00003999960000399996
+      },
+      {
+        "id": "corrupt_object_minus_present",
+        "estimate": 0.1023777700151424,
+        "ci95_low": 0.09364832183741585,
+        "ci95_high": 0.11085156202125598,
+        "p_monte_carlo": 0.00000999990000099999,
+        "p_holm": 0.00003999960000399996
+      }
+    ],
+    "secondary_comparisons": [
+      {
+        "id": "clean_contour_minus_object_accuracy",
+        "estimate": -0.0005279374518185554,
+        "ci95_low": -0.002255069613842688,
+        "ci95_high": 0.0012104429053204698,
+        "p_monte_carlo": 0.5559944400555994
+      },
+      {
+        "id": "object_clean_minus_corrupt_accuracy",
+        "estimate": 0.181407024299029,
+        "ci95_low": 0.17415801479237508,
+        "ci95_high": 0.18840741055738994,
+        "p_monte_carlo": 0.00000999990000099999
+      }
+    ],
+    "levels": {
+      "clean_object_accuracy": {
+        "estimate": 0.7817887550423112,
+        "ci95_low": 0.7760072952395918,
+        "ci95_high": 0.7874293400250751
+      },
+      "corrupt_object_accuracy": {
+        "estimate": 0.6003817307432824,
+        "ci95_low": 0.594488034943467,
+        "ci95_high": 0.6064672859980419
+      },
+      "corrupt_accuracy_minus_fixed_floor": {
+        "estimate": -0.04961826925671774,
+        "ci95_low": -0.05576322880990422,
+        "ci95_high": -0.043470948139360505
+      },
+      "clean_worst_object_accuracy": {
+        "estimate": 0.7365912142683861,
+        "ci95_low": 0.7275379586716172,
+        "ci95_high": 0.7450618926818712
+      },
+      "clean_cross_object_leakage": {
+        "estimate": 0.03401585773263121,
+        "ci95_low": 0.03328418941821015,
+        "ci95_high": 0.03476064616766059
+      },
+      "corrupt_cross_object_leakage": {
+        "estimate": 0.10524200642008041,
+        "ci95_low": 0.10270146777424427,
+        "ci95_high": 0.10779703661182247
+      },
+      "clean_object_brier": {
+        "estimate": 0.05372461881309206,
+        "ci95_low": 0.05237957481277948,
+        "ci95_high": 0.05504192953852394
+      },
+      "clean_contour_brier": {
+        "estimate": 0.05136597316946597,
+        "ci95_low": 0.050187833850098014,
+        "ci95_high": 0.052500406405557226
+      },
+      "clean_object_ece": {
+        "estimate": 0.0884433963684826,
+        "ci95_low": 0.08368509420533365,
+        "ci95_high": 0.09322482263985833
+      },
+      "clean_contour_ece": {
+        "estimate": 0.048917802862823455,
+        "ci95_low": 0.04609488147804993,
+        "ci95_high": 0.051768666577755945
+      }
+    },
+    "severity_accuracy": {
+      "standard": {
+        "clean_present": 0.49457942574151204,
+        "clean_global": 0.47110986929879256,
+        "clean_object": 0.7845465970306095,
+        "corrupt_object": 0.6010237896544273
+      },
+      "hard": {
+        "clean_present": 0.5000770358710935,
+        "clean_global": 0.48183824777111345,
+        "clean_object": 0.7802662692885973,
+        "corrupt_object": 0.6001080662956226
+      },
+      "extreme": {
+        "clean_present": 0.4993554205718141,
+        "clean_global": 0.48988672445375847,
+        "clean_object": 0.7805533988077269,
+        "corrupt_object": 0.6000133362797972
+      }
+    }
+  },
+  "source_fixtures": {
+    "vam_pems_9b_reconstruction_rows_csv_sha256": "934a5c0c3e6f5740202525207853f878e1f13b2ad2029caaa3611325ad813f65",
+    "vam_pems_10_reconstruction_rows_csv_sha256": "a5a8e0c01a96a2b288be6c86a186aa4f3637838c571facff81f143cfd3feae23"
+  }
+}
